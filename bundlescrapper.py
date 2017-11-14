@@ -41,8 +41,11 @@ soup = BeautifulSoup(resp.text, 'html.parser')
 #testy = soup.findAll('h2')
 #print(testy[0])
 
-testy = soup.select('.dd-header-headline')
-print(testy[0].text.strip())
+tier_headlines = soup.select('.dd-header-headline')
+print(tier_headlines[0].text.strip())
+
+for tier in tier_headlines:
+    print(tier.text.strip())
 
 
 
