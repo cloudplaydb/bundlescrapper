@@ -42,7 +42,7 @@ soup = BeautifulSoup(resp.text, 'html.parser')
 #print(testy[0])
 
 testy = soup.select('.dd-header-headline')
-print(testy[0].text)
+print(testy[0].text.strip())
 
 
 
