@@ -29,18 +29,25 @@ tiers = {
         "products" : [
             "name1",
             "name2"
-        ],
+        ]
+    },
     "tier2" : {
         "price" : 500,
         "products" : [
             "name1",
             "name2"
         ]
-      }
     }
 }
 
 print(tiers)
+
+# list of tiers
+#print(tiers.keys())
+#dict_keys(['tier1'])
+
+#python list comprehensions
+print([key for key in tiers.keys()])
 
 
 
