@@ -47,7 +47,10 @@ print(tiers)
 #dict_keys(['tier1'])
 
 #python list comprehensions
-print([key for key in tiers.keys()])
+print([key.upper() for key in tiers.keys()])
+
+stripped_tiernames = [tier.text.strip() for tier in tier_headlines]
+print(stripped_tiernames)
 
 
 
