@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 # webscrapper - https://www.youtube.com/watch?v=7SWVXPYZLJM
-# scrap dest - https://www.humblebundle.com/books/sex-science-comics
+# scrap dest - https://www.humblebundle.com/books/start-a-startup-books
 
 import sys
 import requests
@@ -12,7 +12,7 @@ print('Start to scrape')
 # setup virtual env
 # https://www.youtube.com/watch?v=N5vscPTWKOk
 
-url = 'https://www.humblebundle.com/books/sex-science-comics'
+url = 'https://www.humblebundle.com/books/start-a-startup-books'
 
 # make an http request to the url and inspect the result of that
 # http://docs.python-requests.org/en/master/
