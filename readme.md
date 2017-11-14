@@ -26,3 +26,12 @@
 
 # We are capturing 'Support Charity' by mistake ..!
 
+# Design Data structure
+    - tier1 name and price
+        - product1
+        - product2
+    - tier2 name and price
+        - product1
+        - product2
+# Common datastructure operations
+    - try them and see if you got the right design

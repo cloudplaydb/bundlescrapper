@@ -14,13 +14,33 @@ soup = BeautifulSoup(resp.text, 'html.parser')
 #testy = soup.findAll('h2')
 #print(testy[0])
 
+# Bundle tiers
 tier_headlines = soup.select('.dd-header-headline')
 print(tier_headlines[0].text.strip())
 
 for tier in tier_headlines:
     print(tier.text.strip())
 
+# Design datastructure - List ?? dictionary ??
 
+tiers = {
+    "tier1" :{
+        "price" : 500,
+        "products" : [
+            "name1",
+            "name2"
+        ],
+    "tier2" : {
+        "price" : 500,
+        "products" : [
+            "name1",
+            "name2"
+        ]
+      }
+    }
+}
+
+print(tiers)
 
 
 
