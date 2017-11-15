@@ -1,56 +1,40 @@
 import requests
 from bs4 import BeautifulSoup
 
-print('Start to scrape')
-
 url = 'https://www.humblebundle.com/books/start-a-startup-books'
-
 resp = requests.get(url)
 soup = BeautifulSoup(resp.text, 'html.parser')
-#print(soup)
-#print(soup.p)
-#print(soup.findAll('.dd-header-headline'))
-#print(soup.findAll('h2'))
-#testy = soup.findAll('h2')
-#print(testy[0])
+tier_dict = {}
+
+#Product names
+product_names = soup.select(".dd-image-box-caption")
+stripped_product_names = [prodname.text.strip() for prodname in product_names]
 
 # Bundle tiers
-tier_headlines = soup.select('.dd-header-headline')
-print(tier_headlines[0].text.strip())
+tiers = soup.select(".dd-game-row")
 
-for tier in tier_headlines:
-    print(tier.text.strip())
+# Looping through each tier
+for tier in tiers:
+    # Only for sections that have a headline
+    if tier.select(".dd-header-headline"):
+        # Grab tiername and price
+        tiername = tier.select(".dd-header-headline")[0].text.strip()
 
-# Design datastructure - List ?? dictionary ??
+        # Grab tier product names
+        product_names = tier.select(".dd-image-box-caption")
+        product_names = [prodname.text.strip() for prodname in product_names]
 
-tiers = {
-    "tier1" :{
-        "price" : 500,
-        "products" : [
-            "name1",
-            "name2"
-        ]
-    },
-    "tier2" : {
-        "price" : 500,
-        "products" : [
-            "name1",
-            "name2"
-        ]
-    }
-}
+        # Add one product tier to our data structure
+        tier_dict[tiername] = {"products" : product_names}
 
-print(tiers)
+# After we build our datastructure ...
+for tiername, tierinfo in tier_dict.items():
+    print(tiername)
+    print("#######################################")
+    print("products: ")
+    print("\n".join(tierinfo['products']))
+    print("\n\n")
 
-# list of tiers
-#print(tiers.keys())
-#dict_keys(['tier1'])
-
-#python list comprehensions
-print([key.upper() for key in tiers.keys()])
-
-stripped_tiernames = [tier.text.strip() for tier in tier_headlines]
-print(stripped_tiernames)
 
 
 
